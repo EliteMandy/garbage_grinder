@@ -1,4 +1,4 @@
-# garbage_grinder
+# Garbage Grinder
 
 A new Flutter project.
 
