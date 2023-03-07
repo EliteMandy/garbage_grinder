@@ -1,16 +1,9 @@
 import 'package:flutter/material.dart';
-
-// void main() {
-//   runApp(
-//     MaterialApp(
-//       home: Center(
-//         child: Text("Hello Mahendra"),
-//       ),
-//     ),
-//   );
-// }
+import 'package:garbage_grinder/routers.dart';
+import 'package:garbage_grinder/screens/home.dart';
 
 void main() {
+<<<<<<< HEAD
   runApp(
     MaterialApp(
       home: Scaffold(
@@ -70,4 +63,23 @@ void main() {
       ),
     ),
   );
+=======
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      initialRoute: '/',
+      onGenerateRoute: (settings) => RouteGenerate.generateRoute(settings),
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        body: HomePage(),
+      ),
+    );
+  }
+>>>>>>> 442bdea605771b4d8862d34e83cf7bb50f21391c
 }
