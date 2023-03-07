@@ -18,6 +18,13 @@ void main() {
           title: Text("Garbage Grinder"),
           backgroundColor: Color.fromARGB(255, 43, 41, 41),
         ),
+        body:Center(child: Text('Hello Mahendra',
+        style: TextStyle(
+                  color: Color.fromARGB(255, 7, 164, 222),
+                  fontSize: 30,
+                  fontFamily: 'Courier'),
+        
+        ),),
         drawer: Drawer(
             child: ListView(
           padding: EdgeInsets.zero,
@@ -53,6 +60,10 @@ void main() {
             ListTile(
               leading: Icon(Icons.privacy_tip),
               title: Text('Privacy'),
+            ),
+            ListTile(
+              leading: Icon(Icons.accessibility_outlined),
+              title: Text('Accessibility'),
             ),
           ],
         )),
