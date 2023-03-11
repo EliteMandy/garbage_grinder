@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:garbage_grinder/privacy.dart';
+import 'package:garbage_grinder/screens/aboutUs.dart';
+import 'package:garbage_grinder/screens/contactUs.dart';
+import 'package:garbage_grinder/screens/profilePage.dart';
+import 'package:garbage_grinder/screens/settings.dart';
 
 class HomePage extends StatefulWidget {
+  static const routeName = '/';
   const HomePage({super.key});
 
   @override
@@ -12,19 +18,23 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text("Garbage Grinder"),
-          backgroundColor: const Color.fromARGB(255, 43, 41, 41),
+    return Scaffold(
+      appBar: AppBar(
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: const [
+            Text("Garbage Grinder"),
+            Icon(Icons.notifications),
+          ],
         ),
-        drawer: Drawer(
-            child: ListView(
+      ),
+      drawer: Drawer(
+        child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
             const DrawerHeader(
               decoration: BoxDecoration(
-                color: Color.fromARGB(255, 43, 41, 41),
+                color: Colors.green,
               ),
               child: Text(
                 'Profile',
@@ -36,7 +46,7 @@ class _HomePageState extends State<HomePage> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.of(context).pushNamed('/profile');
+                Navigator.of(context).pushNamed(ProfilePage.routeName);
               },
               child: const ListTile(
                 leading: Icon(Icons.person_sharp),
@@ -45,7 +55,7 @@ class _HomePageState extends State<HomePage> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.of(context).pushNamed('/contact');
+                Navigator.of(context).pushNamed(ContactUs.routeName);
               },
               child: const ListTile(
                 leading: Icon(Icons.call),
@@ -54,7 +64,7 @@ class _HomePageState extends State<HomePage> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.of(context).pushNamed('/About-us');
+                Navigator.of(context).pushNamed(AboutUs.routeName);
               },
               child: const ListTile(
                 leading: Icon(Icons.account_circle),
@@ -62,21 +72,21 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             GestureDetector(
-              onTap: () => Navigator.of(context).pushNamed('/Settings'),
+              onTap: () => Navigator.of(context).pushNamed(Settings.routeName),
               child: const ListTile(
                 leading: Icon(Icons.settings),
                 title: Text('Settings'),
               ),
             ),
             GestureDetector(
-              onTap: () => Navigator.of(context).pushNamed('/Privacy'),
+              onTap: () => Navigator.of(context).pushNamed(Privacy.routeName),
               child: const ListTile(
                 leading: Icon(Icons.privacy_tip),
                 title: Text('Privacy'),
               ),
             ),
           ],
-        )),
+        ),
       ),
     );
   }

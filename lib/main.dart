@@ -12,12 +12,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/',
+      theme: ThemeData(
+        primarySwatch: Colors.green,
+      ),
+      initialRoute: HomePage.routeName,
       onGenerateRoute: (settings) => RouteGenerate.generateRoute(settings),
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: HomePage(),
-      ),
     );
   }
 }
