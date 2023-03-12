@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
 class ContactUs extends StatefulWidget {
+  static const routeName = '/contact-us';
   const ContactUs({super.key});
 
   @override

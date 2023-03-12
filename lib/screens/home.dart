@@ -1,8 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:garbage_grinder/screens/homeScreen/store.dart';
+import 'package:garbage_grinder/screens/privacy.dart';
+import 'package:garbage_grinder/screens/aboutUs.dart';
+import 'package:garbage_grinder/screens/contactUs.dart';
+import 'package:garbage_grinder/screens/profilePage.dart';
+import 'package:garbage_grinder/screens/settings.dart';
+import 'package:garbage_grinder/widgets/drawer.dart';
+
+import 'homeScreen/calendar.dart';
+import 'homeScreen/stats.dart';
 
 class HomePage extends StatefulWidget {
+  static const routeName = '/';
   const HomePage({super.key});
 
   @override
@@ -12,71 +23,41 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
         appBar: AppBar(
-          title: const Text("Garbage Grinder"),
-          backgroundColor: const Color.fromARGB(255, 43, 41, 41),
+          bottom: const TabBar(
+            tabs: [
+              Tab(
+                child: Icon(Icons.auto_graph_rounded),
+              ),
+              Tab(
+                child: Icon(Icons.calendar_month),
+              ),
+              Tab(
+                child: Icon(Icons.shopping_cart),
+              ),
+            ],
+          ),
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: const [
+              Text("Garbage Grinder"),
+              Icon(Icons.notifications),
+            ],
+          ),
         ),
-        drawer: Drawer(
-            child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Color.fromARGB(255, 43, 41, 41),
-              ),
-              child: Text(
-                'Profile',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 30,
-                ),
-              ),
-            ),
-            GestureDetector(
-              onTap: () {
-                Navigator.of(context).pushNamed('/profile');
-              },
-              child: const ListTile(
-                leading: Icon(Icons.person_sharp),
-                title: Text('Profile'),
-              ),
-            ),
-            GestureDetector(
-              onTap: () {
-                Navigator.of(context).pushNamed('/contact');
-              },
-              child: const ListTile(
-                leading: Icon(Icons.call),
-                title: Text('Contact'),
-              ),
-            ),
-            GestureDetector(
-              onTap: () {
-                Navigator.of(context).pushNamed('/About-us');
-              },
-              child: const ListTile(
-                leading: Icon(Icons.account_circle),
-                title: Text('About us'),
-              ),
-            ),
-            GestureDetector(
-              onTap: () => Navigator.of(context).pushNamed('/Settings'),
-              child: const ListTile(
-                leading: Icon(Icons.settings),
-                title: Text('Settings'),
-              ),
-            ),
-            GestureDetector(
-              onTap: () => Navigator.of(context).pushNamed('/Privacy'),
-              child: const ListTile(
-                leading: Icon(Icons.privacy_tip),
-                title: Text('Privacy'),
-              ),
-            ),
+        drawer: const Drawer(
+          child: CustomDrawer(),
+        ),
+        body: const TabBarView(
+          children: [
+            Stats(),
+            Calnedar(),
+            Store(),
           ],
-        )),
+        ),
       ),
     );
   }

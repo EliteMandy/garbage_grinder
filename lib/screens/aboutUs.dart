@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
 class AboutUs extends StatefulWidget {
+  static const routeName = '/about-us';
   const AboutUs({super.key});
 
   @override

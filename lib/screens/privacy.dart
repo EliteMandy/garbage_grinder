@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
 class Privacy extends StatefulWidget {
+  static const routeName = '/privacy';
   const Privacy({super.key});
 
   @override
