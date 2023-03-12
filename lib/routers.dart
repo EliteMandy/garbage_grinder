@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:garbage_grinder/privacy.dart';
+import 'package:garbage_grinder/screens/privacy.dart';
 import 'package:garbage_grinder/screens/aboutUs.dart';
 import 'package:garbage_grinder/screens/contactUs.dart';
 import 'package:garbage_grinder/screens/home.dart';
