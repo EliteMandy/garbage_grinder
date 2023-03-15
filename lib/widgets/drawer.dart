@@ -70,6 +70,26 @@ class CustomDrawer extends StatelessWidget {
             title: Text('Privacy'),
           ),
         ),
+        GestureDetector(
+          onTap: () => Navigator.of(context).pushNamed(Privacy.routeName),
+          child: const ListTile(
+            leading: Icon(Icons.help),
+            title: Text('Help'),
+          ),
+        ),
+        const SizedBox(
+          height: 80,
+        ),
+        GestureDetector(
+          onTap: () {
+            //TODO
+            //Logout functionality
+          },
+          child: const ListTile(
+            leading: Icon(Icons.logout_outlined),
+            title: Text('Logout'),
+          ),
+        ),
       ],
     );
   }

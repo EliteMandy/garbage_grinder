@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:garbage_grinder/screens/help.dart';
 import 'package:garbage_grinder/screens/privacy.dart';
 import 'package:garbage_grinder/screens/aboutUs.dart';
 import 'package:garbage_grinder/screens/contactUs.dart';
@@ -15,17 +16,19 @@ class RouteGenerate {
 
     switch (settings.name) {
       case HomePage.routeName:
-        return MaterialPageRoute(builder: ((context) => HomePage()));
+        return MaterialPageRoute(builder: ((context) => const HomePage()));
       case ProfilePage.routeName:
-        return MaterialPageRoute(builder: ((context) => ProfilePage()));
+        return MaterialPageRoute(builder: ((context) => const ProfilePage()));
       case ContactUs.routeName:
-        return MaterialPageRoute(builder: ((context) => ContactUs()));
+        return MaterialPageRoute(builder: ((context) => const ContactUs()));
       case AboutUs.routeName:
-        return MaterialPageRoute(builder: ((context) => AboutUs()));
+        return MaterialPageRoute(builder: ((context) => const AboutUs()));
       case Settings.routeName:
-        return MaterialPageRoute(builder: ((context) => Settings()));
+        return MaterialPageRoute(builder: ((context) => const Settings()));
       case Privacy.routeName:
-        return MaterialPageRoute(builder: ((context) => Privacy()));
+        return MaterialPageRoute(builder: ((context) => const Privacy()));
+      case Help.routeName:
+        return MaterialPageRoute(builder: ((context) => const Help()));
       default:
         return MaterialPageRoute(
           builder: ((context) => Scaffold(
