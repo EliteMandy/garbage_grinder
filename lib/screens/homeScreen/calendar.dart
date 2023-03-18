@@ -3,7 +3,6 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:calendar_view/calendar_view.dart';
 import 'package:garbage_grinder/widgets/date_calendar.dart';
-import 'package:responsive_widgets/responsive_widgets.dart';
 
 class Calnedar extends StatefulWidget {
   const Calnedar({super.key});
@@ -15,6 +14,20 @@ class Calnedar extends StatefulWidget {
 class _CalnedarState extends State<Calnedar> {
   @override
   Widget build(BuildContext context) {
-    return const DateCalendar();
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          children: [
+            Center(
+              child: Container(
+                height: 500,
+                width: 300,
+                child: DateCalendar(),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

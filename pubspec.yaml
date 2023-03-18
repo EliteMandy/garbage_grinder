@@ -38,6 +38,7 @@ dependencies:
   charts_flutter: ^0.12.0
   calendar_view: ^1.0.2
   responsive_widgets: ^2.0.1
+  material_design_icons_flutter: ^6.0.7096
 
 dev_dependencies:
   flutter_test:
