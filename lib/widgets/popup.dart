@@ -1,24 +1,25 @@
 import 'package:flutter/material.dart';
-
-TextStyle? style1 = const TextStyle(
-  fontSize: 20,
-  fontWeight: FontWeight.w500,
-);
-TextStyle? style2 = const TextStyle(
-  fontSize: 19,
-  color: Color(0xFF15764E),
-);
-const double IconSize = 31;
+import 'package:garbage_grinder/constants/constant.dart';
 
 Widget buildPopupDialog(BuildContext context) {
+  TextStyle? style1 = const TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.w500,
+  );
+  // ignore: prefer_const_constructors
+  TextStyle? style2 = TextStyle(
+    fontSize: 19,
+    color: Color(0xFF15764E),
+  );
+  KConstant constant = KConstant();
   return AlertDialog(
     title: Row(
-      children: const [
+      children: [
         Icon(
           Icons.notifications,
-          size: IconSize,
+          size: constant.popupIconSize,
         ),
-        SizedBox(
+        const SizedBox(
           width: 10,
         ),
         Text('Knock Knock!'),
@@ -31,9 +32,9 @@ Widget buildPopupDialog(BuildContext context) {
       children: <Widget>[
         Row(
           children: [
-            const Icon(
+            Icon(
               Icons.calendar_today,
-              size: IconSize,
+              size: constant.popupIconSize,
             ),
             const SizedBox(
               width: 10,
@@ -53,9 +54,9 @@ Widget buildPopupDialog(BuildContext context) {
         ),
         Row(
           children: [
-            const Icon(
+            Icon(
               Icons.timer_sharp,
-              size: IconSize,
+              size: constant.popupIconSize,
             ),
             const SizedBox(
               width: 10,
@@ -75,9 +76,9 @@ Widget buildPopupDialog(BuildContext context) {
         ),
         Row(
           children: [
-            const Icon(
+            Icon(
               Icons.recycling_outlined,
-              size: IconSize,
+              size: constant.popupIconSize,
             ),
             Text(
               'Collection:',
@@ -120,9 +121,9 @@ Widget buildPopupDialog(BuildContext context) {
             const SizedBox(
               height: 10,
             ),
-            const Icon(
+            Icon(
               Icons.emoji_emotions_outlined,
-              size: IconSize,
+              size: constant.popupIconSize,
             )
           ],
         )
