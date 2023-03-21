@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage> {
         body: const TabBarView(
           children: [
             Stats(),
-            Calnedar(),
+            Calendar(),
             Store(),
           ],
         ),
