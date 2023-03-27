@@ -1,159 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:calendar_view/calendar_view.dart';
+import 'package:garbage_grinder/widgets/date_calendar.dart';
 
-import 'dart:math';
+class Calnedar extends StatefulWidget {
+  const Calnedar({super.key});
 
-const int cellCount = 100;
-const int rows = 5;
-const int columns = 20;
-const String year = '2023';
-
-class Calendar extends StatefulWidget {
-  const Calendar({super.key});
-  
-  
   @override
-  State<Calendar> createState() => _CalendarState();
+  State<Calnedar> createState() => _CalnedarState();
 }
 
-class _CalendarState extends State<Calendar> {
+class _CalnedarState extends State<Calnedar> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const Text(
-          '$year', 
-          style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          children: [
+            Center(
+              child: Container(
+                height: 500,
+                width: 300,
+                child: DateCalendar(),
+              ),
+            ),
+          ],
         ),
-        const SizedBox(height: 40),
-        Table(
-          border: TableBorder.all(),
-          children: List.generate(rows, (row) {
-            List<TableCell> rowCells = [];
-            for (int column = 0; column < columns; column++) {
-              int cellidx = (row * columns + column);
-              if (cellidx < cellCount) {
-                rowCells.add(
-                    TableCell(
-                        child: Container(
-                            color: _getRandomColor(),
-                            child: const Text(
-                                  ' ',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(color: Colors.white),
-                                )
-                        )
-                    )
-                );
-              } else {
-                rowCells.add(
-                    TableCell(
-                      child: Container(),
-                    )
-                );
-              }
-            }
-            return TableRow(children: rowCells);
-          }),
-        ),const SizedBox(height: 40),
-        Table(
-          border: TableBorder.all(),
-          children: List.generate(rows, (row) {
-            List<TableCell> rowCells = [];
-            for (int column = 0; column < columns; column++) {
-              int cellidx = (row * columns + column);
-              if (cellidx < cellCount) {
-                rowCells.add(
-                    TableCell(
-                        child: Container(
-                            color: _getRandomColor(),
-                            child: const Text(
-                                  ' ',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(color: Colors.white),
-                                )
-                        )
-                    )
-                );
-              } else {
-                rowCells.add(
-                    TableCell(
-                      child: Container(),
-                    )
-                );
-              }
-            }
-            return TableRow(children: rowCells);
-          }),
-        ),const SizedBox(height: 40),
-        Table(
-          border: TableBorder.all(),
-          children: List.generate(rows, (row) {
-            List<TableCell> rowCells = [];
-            for (int column = 0; column < columns; column++) {
-              int cellidx = (row * columns + column);
-              if (cellidx < cellCount) {
-                rowCells.add(
-                    TableCell(
-                        child: Container(
-                            color: _getRandomColor(),
-                            child: const Text(
-                                  ' ',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(color: Colors.white),
-                                )
-                        )
-                    )
-                );
-              } else {
-                rowCells.add(
-                    TableCell(
-                      child: Container(),
-                    )
-                );
-              }
-            }
-            return TableRow(children: rowCells);
-          }),
-        ),const SizedBox(height: 40),
-        Table(
-          border: TableBorder.all(),
-          children: List.generate(rows, (row) {
-            List<TableCell> rowCells = [];
-            for (int column = 0; column < columns; column++) {
-              int cellidx = (row * columns + column);
-              if (cellidx < cellCount) {
-                rowCells.add(
-                    TableCell(
-                        child: Container(
-                            color: _getRandomColor(),
-                            child: const Text(
-                                  ' ',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(color: Colors.white),
-                                )
-                        )
-                    )
-                );
-              } else {
-                rowCells.add(
-                    TableCell(
-                      child: Container(),
-                    )
-                );
-              }
-            }
-            return TableRow(children: rowCells);
-          }),
-        ),
-      ],
+      ),
     );
   }
-    Color _getRandomColor() {
-      Random rnd = Random();
-      if (rnd.nextBool()) {
-        return Colors.green;
-      } else {
-        return Colors.red;
-      }
-    }
 }

@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:garbage_grinder/widgets/popup.dart';
 import 'package:garbage_grinder/screens/homeScreen/store.dart';
-import 'package:garbage_grinder/screens/privacy.dart';
-import 'package:garbage_grinder/screens/aboutUs.dart';
-import 'package:garbage_grinder/screens/contactUs.dart';
-import 'package:garbage_grinder/screens/profilePage.dart';
-import 'package:garbage_grinder/screens/settings.dart';
+
 import 'package:garbage_grinder/widgets/drawer.dart';
 
 import 'homeScreen/calendar.dart';
@@ -42,9 +37,18 @@ class _HomePageState extends State<HomePage> {
           ),
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              Text("Garbage Grinder"),
-              Icon(Icons.notifications),
+            children: [
+              const Text("Garbage Grinder"),
+              GestureDetector(
+                child: Icon(Icons.notifications),
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) =>
+                        buildPopupDialog(context),
+                  );
+                },
+              ),
             ],
           ),
         ),
